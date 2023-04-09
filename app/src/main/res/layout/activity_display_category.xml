@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DisplayCategoryActivity"
+    android:orientation="vertical"
+    android:background="@drawable/sea">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="5"
+        android:background="#0B2447">
+
+        <ImageView
+            android:id="@+id/imgcategoryback"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/leftwhite"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/txtquotestitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Names"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/aloevera"
+            android:layout_weight="3"
+            />
+
+        <ImageView
+            android:id="@+id/imgcategoryfav"
+            android:layout_weight="1"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+
+            android:src="@drawable/heart"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvdisplaycategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      tools:listitem="@layout/quotesitemfile">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

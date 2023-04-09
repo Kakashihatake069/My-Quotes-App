@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/displaylayout"
+   >
+
+
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/crddisplayimage"
+       android:layout_marginTop="@dimen/_10sdp"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_518sdp"
+       android:layout_marginVertical="@dimen/_10sdp"
+       android:layout_marginHorizontal="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+
+          >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/_470sdp">
+
+               <TextView
+                   android:id="@+id/txtquotes"
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/_470sdp"
+                   android:textSize="@dimen/_15sdp"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+
+                   android:padding="@dimen/_10sdp"
+                   android:fontFamily="@font/aloevera"
+                   android:background="@drawable/flowerbg"
+                 />
+
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/_48sdp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:weightSum="4"
+               android:layout_weight="0.5"
+               android:background="#0B2447"
+
+
+               >
+
+               <ImageView
+                   android:id="@+id/imgquotescopy"
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_weight="1"
+                   android:src="@drawable/copy" />
+               <ImageView
+                   android:id="@+id/imgquotesfavourite"
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_weight="1"
+                   android:src="@drawable/heart" />
+
+               <ImageView
+                   android:id="@+id/imgquotessdownload"
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_weight="1"
+                   android:src="@drawable/download" />
+
+               <ImageView
+                   android:id="@+id/imgquotesshare"
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_weight="1"
+                   android:src="@drawable/share" />
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+   </androidx.cardview.widget.CardView>
+
+</LinearLayout>
