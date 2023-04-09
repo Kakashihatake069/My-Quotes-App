@@ -13,8 +13,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quotesapp.R
 import com.example.quotesapp.activity.quotesmodel
@@ -29,7 +27,7 @@ class QuotesAdapter( var context: Context,
             var displaylayout : LinearLayout = itemView.findViewById(R.id.displaylayout)
             var imgquotesfavourite : ImageView = itemView.findViewById(R.id.imgquotesfavourite)
             var imgquotesshare : ImageView = itemView.findViewById(R.id.imgquotesshare)
-//            var imgquotescopy : ImageView = itemView.findViewById(R.id.imgquotescopy)
+            var imgquotescopy : ImageView = itemView.findViewById(R.id.imgquotescopy)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyQuotesViewHolder {
@@ -54,6 +52,7 @@ class QuotesAdapter( var context: Context,
             holder.imgquotesfavourite.setImageResource(R.drawable.heart)
         }
 
+        // Favourite Quotes method
         holder.imgquotesfavourite.setOnClickListener {
 
             if (quotesmodel[position].status == 1)
@@ -71,18 +70,20 @@ class QuotesAdapter( var context: Context,
             }
 
         }
+        // share method
         holder.imgquotesshare.setOnClickListener(View.OnClickListener {s: View? ->
-            var i = Intent(Intent.ACTION_SEND)
+            val i = Intent(Intent.ACTION_SEND)
             i.setType("text/plain")
             i.putExtra(Intent.EXTRA_TEXT,quotesmodel[position].quotes)
             context.startActivity(i)
         })
-//        holder.imgquotescopy.setOnClickListener {
-//            val clipboard : ClipboardManager =  getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-//            val clip = ClipData.newPlainText("label",quotesmodel[position].quotes)
-//            clipboard.setPrimaryClip(clip)
-////            Toast.makeText(this,"Quotes Copyed", Toast.LENGTH_SHORT).show()
-//        }
+        //copy text method
+        holder.imgquotescopy.setOnClickListener {
+            val clipboard = context.getSystemService(CLIPBOARD_SERVICE)as ClipboardManager
+            val clip : ClipData = ClipData.newPlainText("simple text","hello world!")
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(context,"copy",Toast.LENGTH_SHORT).show()
+        }
 
     }
 

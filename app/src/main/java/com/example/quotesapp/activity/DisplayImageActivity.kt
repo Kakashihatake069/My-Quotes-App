@@ -5,12 +5,10 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat.GroupAlertBehavior
 import com.example.quotesapp.R
 import com.example.quotesapp.databinding.ActivityDisplayImageBinding
 
@@ -26,16 +24,16 @@ class DisplayImageActivity : AppCompatActivity() {
 
     }
     private fun initview() {
-        var quotesname : String? = intent.getStringExtra("quotes")
+        val quotesname : String? = intent.getStringExtra("quotes")
         displayBinding.displaytext.text = quotesname
 
         displayBinding.imgbackbuttonofdis.setOnClickListener {
-            var back = Intent(this,MainActivity::class.java)
+            val back = Intent(this,MainActivity::class.java)
             startActivity(back)
         }
        //Share Quotes  Method
         displayBinding.imgshare.setOnClickListener {
-            var i = Intent(Intent.ACTION_SEND)
+            val i = Intent(Intent.ACTION_SEND)
             i.setType("text/plain")
             i.putExtra(Intent.EXTRA_TEXT,quotesname)
             startActivity(i)
@@ -46,7 +44,7 @@ class DisplayImageActivity : AppCompatActivity() {
             val clipboard : ClipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("label",quotesname)
             clipboard.setPrimaryClip(clip)
-            Toast.makeText(this,"copy code",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"copy",Toast.LENGTH_SHORT).show()
         }
 
         // Pick Image Method
