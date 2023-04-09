@@ -28,27 +28,32 @@ class DisplayCategoryActivity : AppCompatActivity() {
     private fun initview() {
 
         quotesBinding.imgcategoryfav.setOnClickListener {
-            var favbutton = Intent(this,FavouriteStatusActivity::class.java)
+            val favbutton = Intent(this,FavouriteStatusActivity::class.java)
             startActivity(favbutton)
+            finish()
+        }
+        quotesBinding.imgcategoryback.setOnClickListener {
+            val back = Intent(this,MainActivity::class.java)
+            startActivity(back)
             finish()
         }
 
 
-        var quotes : String? = intent.getStringExtra("Title")
+        val quotes : String? = intent.getStringExtra("Title")
         quotesBinding.txtquotestitle.text = quotes
 
-        var id = intent.getIntExtra("id",0)
+        val id = intent.getIntExtra("id",0)
         quoteslist = displaydb.quotesdata(id)
 
         adapter = QuotesAdapter(this,quoteslist,{
-            var display = Intent(this, DisplayImageActivity::class.java)
+            val display = Intent(this, DisplayImageActivity::class.java)
             display.putExtra("quotes",it.quotes)
             startActivity(display)
 
         },{id,fav->
                 displaydb.update_data(id,fav)
             })
-        var manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        val manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         quotesBinding.rcvdisplaycategory.layoutManager =manager
         quotesBinding.rcvdisplaycategory.adapter = adapter
     }
