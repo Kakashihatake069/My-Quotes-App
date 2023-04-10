@@ -47,12 +47,7 @@ class QuotesAdapter( var context: Context,
         {
             holder.imgquotesfavourite.setImageResource(R.drawable.heartfill)
         }
-        else
-        {
-            holder.imgquotesfavourite.setImageResource(R.drawable.heart)
-        }
 
-        // Favourite Quotes method
         holder.imgquotesfavourite.setOnClickListener {
 
             if (quotesmodel[position].status == 1)

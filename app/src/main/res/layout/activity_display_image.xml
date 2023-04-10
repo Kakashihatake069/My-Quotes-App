@@ -54,7 +54,7 @@
         android:layout_height="@dimen/_48sdp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="4"
+        android:weightSum="3"
       android:layout_alignParentBottom="true"
         android:layout_weight="0.5"
         android:background="#0B2447"
@@ -68,12 +68,12 @@
             android:layout_height="25dp"
             android:layout_weight="1"
             android:src="@drawable/copy" />
-        <ImageView
-            android:id="@+id/imgfavourite"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_weight="1"
-            android:src="@drawable/heart" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imgfavourite"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:src="@drawable/heart" />-->
 
         <ImageView
             android:id="@+id/imgdownload"

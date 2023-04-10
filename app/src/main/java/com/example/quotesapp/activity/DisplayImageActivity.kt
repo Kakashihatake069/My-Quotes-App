@@ -1,10 +1,12 @@
 package com.example.quotesapp.activity
 
+import android.app.PendingIntent.OnFinished
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -28,8 +30,8 @@ class DisplayImageActivity : AppCompatActivity() {
         displayBinding.displaytext.text = quotesname
 
         displayBinding.imgbackbuttonofdis.setOnClickListener {
-            val back = Intent(this,MainActivity::class.java)
-            startActivity(back)
+            this.onBackPressed()
+
         }
        //Share Quotes  Method
         displayBinding.imgshare.setOnClickListener {

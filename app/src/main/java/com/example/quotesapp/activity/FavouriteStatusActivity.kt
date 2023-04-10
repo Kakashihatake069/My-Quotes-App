@@ -1,20 +1,20 @@
 package com.example.quotesapp.activity
 
 import adapter.StatusAdapter
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quotesapp.R
-import com.example.quotesapp.databinding.ActivityDisplayImageBinding
 import com.example.quotesapp.databinding.ActivityFavouriteStatusBinding
-import com.example.quotesapp.databinding.ActivityMainBinding
 
 class FavouriteStatusActivity : AppCompatActivity() {
     lateinit var favouriteBinding: ActivityFavouriteStatusBinding
     lateinit var statusdb : MyDatabase
     var statuslist = ArrayList<favouritemodelclass>()
 
+    val keyCode = 0
+    val event = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favourite_status)
@@ -24,16 +24,17 @@ class FavouriteStatusActivity : AppCompatActivity() {
         statusdb = MyDatabase(this)
         initview()
 
+
     }
 
     private fun initview() {
             statuslist = statusdb.display_status()
 
         favouriteBinding.imglikeback.setOnClickListener {
-            var i = Intent(this,DisplayCategoryActivity::class.java)
+                finish()
 
-            startActivity(i)
-            finish()
+
+
         }
 
         var adapter = StatusAdapter({ id ,status ->
@@ -45,4 +46,5 @@ class FavouriteStatusActivity : AppCompatActivity() {
 
         adapter.updatelist(statuslist)
     }
+
 }

@@ -29,28 +29,20 @@ class StatusAdapter (var like : (Int,Int ) -> Unit): RecyclerView.Adapter<Status
     }
     override fun onBindViewHolder(holder: StatusAdapter.MyViewHolder, position: Int) {
        holder.txtquotes.text=favlist[position].quotes
-        if (favlist[position].status == 1)
-        {
-            holder.imgquotesfavourite.setImageResource(R.drawable.heartfill)
 
-        }else
-        {
-            holder.imgquotesfavourite.setImageResource(R.drawable.favouriteheart)
-        }
+        holder.imgquotesfavourite.setImageResource(R.drawable.heartfill)
+
         holder.imgquotesfavourite.setOnClickListener {
-            if (favlist[position].status == 1)
-            {
+
                    like.invoke(favlist[position].id,0)
                 holder.imgquotesfavourite.setImageResource(R.drawable.favouriteheart)
                 favlist[position].status = 0
                 Log.e("TAG","working:" +favlist[position].status)
-            }else
-            {
-                like.invoke(favlist[position].id,1)
-                holder.imgquotesfavourite.setImageResource(R.drawable.heartfill)
-                favlist[position].status = 1
-            }
+
+
             deleteitem(position)
+
+
         }
 
     }

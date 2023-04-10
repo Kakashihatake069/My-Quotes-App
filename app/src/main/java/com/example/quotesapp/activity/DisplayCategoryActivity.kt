@@ -2,8 +2,8 @@ package com.example.quotesapp.activity
 
 import adapter.QuotesAdapter
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quotesapp.R
 import com.example.quotesapp.databinding.ActivityDisplayCategoryBinding
@@ -33,9 +33,7 @@ class DisplayCategoryActivity : AppCompatActivity() {
             finish()
         }
         quotesBinding.imgcategoryback.setOnClickListener {
-            val back = Intent(this,MainActivity::class.java)
-            startActivity(back)
-            finish()
+            onBackPressed()
         }
 
 
