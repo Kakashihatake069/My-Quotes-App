@@ -10,7 +10,7 @@ import com.example.quotesapp.databinding.ActivityFavouriteStatusBinding
 
 class FavouriteStatusActivity : AppCompatActivity() {
     lateinit var favouriteBinding: ActivityFavouriteStatusBinding
-    lateinit var statusdb : MyDatabase
+    lateinit var statusdb: MyDatabase
     var statuslist = ArrayList<favouritemodelclass>()
 
     val keyCode = 0
@@ -28,19 +28,18 @@ class FavouriteStatusActivity : AppCompatActivity() {
     }
 
     private fun initview() {
-            statuslist = statusdb.display_status()
+        statuslist = statusdb.display_status()
 
         favouriteBinding.imglikeback.setOnClickListener {
-                finish()
-
+            finish()
 
 
         }
 
-        var adapter = StatusAdapter({ id ,status ->
+        var adapter = StatusAdapter({ id, status ->
             statusdb.update_data(id, status)
         })
-        var manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        var manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         favouriteBinding.rcvfavstatus.layoutManager = manager
         favouriteBinding.rcvfavstatus.adapter = adapter
 
