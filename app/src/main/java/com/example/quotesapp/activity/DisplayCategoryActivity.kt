@@ -14,7 +14,7 @@ class DisplayCategoryActivity : AppCompatActivity() {
     lateinit var displaydb : MyDatabase
     var quoteslist = ArrayList<quotesmodel>()
     lateinit var adapter: QuotesAdapter
-
+    var getid = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_category)
@@ -40,10 +40,10 @@ class DisplayCategoryActivity : AppCompatActivity() {
         val quotes : String? = intent.getStringExtra("Title")
         quotesBinding.txtquotestitle.text = quotes
 
-        val id = intent.getIntExtra("id",0)
-        quoteslist = displaydb.quotesdata(id)
+        getid = intent.getIntExtra("id",0)
+//        quoteslist = displaydb.quotesdata(id)
 
-        adapter = QuotesAdapter(this,quoteslist,{
+        adapter = QuotesAdapter(this,{
             val display = Intent(this, DisplayImageActivity::class.java)
             display.putExtra("quotes",it.quotes)
             startActivity(display)
@@ -54,6 +54,13 @@ class DisplayCategoryActivity : AppCompatActivity() {
         val manager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         quotesBinding.rcvdisplaycategory.layoutManager =manager
         quotesBinding.rcvdisplaycategory.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        quoteslist = displaydb.quotesdata(getid)
+        adapter.updatefunction(quoteslist)
+
     }
 
 }

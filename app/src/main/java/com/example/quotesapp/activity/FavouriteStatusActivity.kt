@@ -13,11 +13,8 @@ class FavouriteStatusActivity : AppCompatActivity() {
     lateinit var statusdb: MyDatabase
     var statuslist = ArrayList<favouritemodelclass>()
 
-    val keyCode = 0
-    val event = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favourite_status)
         favouriteBinding = ActivityFavouriteStatusBinding.inflate(layoutInflater)
         setContentView(favouriteBinding.root)
 
@@ -32,8 +29,6 @@ class FavouriteStatusActivity : AppCompatActivity() {
 
         favouriteBinding.imglikeback.setOnClickListener {
             finish()
-
-
         }
 
         var adapter = StatusAdapter({ id, status ->

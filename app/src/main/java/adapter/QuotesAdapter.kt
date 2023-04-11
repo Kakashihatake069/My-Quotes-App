@@ -18,10 +18,9 @@ import com.example.quotesapp.R
 import com.example.quotesapp.activity.quotesmodel
 
 class QuotesAdapter( var context: Context,
-                     var quotesmodel: ArrayList<quotesmodel>,
                      var displayimg: (quotesmodel) -> Unit,
                      var like: (Int, Int)-> Unit) : RecyclerView.Adapter<QuotesAdapter.MyQuotesViewHolder>() {
-
+    var quotesmodel= ArrayList<quotesmodel>()
     class MyQuotesViewHolder(view:View) : RecyclerView.ViewHolder(view) {
             var txtquotes : TextView = itemView.findViewById(R.id.txtquotes)
             var displaylayout : LinearLayout = itemView.findViewById(R.id.displaylayout)
@@ -87,4 +86,11 @@ class QuotesAdapter( var context: Context,
     override fun getItemCount(): Int {
 return quotesmodel.size
     }
+    fun updatefunction(quotesmodel: ArrayList<quotesmodel>)
+    {
+        this.quotesmodel = ArrayList()
+        this.quotesmodel.addAll(quotesmodel)
+        notifyDataSetChanged()
+    }
+
 }
