@@ -27,9 +27,6 @@ class FavouriteStatusActivity : AppCompatActivity() {
     private fun initview() {
         statuslist = statusdb.display_status()
 
-        favouriteBinding.imglikeback.setOnClickListener {
-            finish()
-        }
 
         var adapter = StatusAdapter({ id, status ->
             statusdb.update_data(id, status)
@@ -39,6 +36,10 @@ class FavouriteStatusActivity : AppCompatActivity() {
         favouriteBinding.rcvfavstatus.adapter = adapter
 
         adapter.updatelist(statuslist)
+        favouriteBinding.imglikeback.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
 }

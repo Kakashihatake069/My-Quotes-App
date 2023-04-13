@@ -33,9 +33,9 @@
         android:id="@+id/imgbackbuttonofdis"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:src="@drawable/backfill"/>
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/backfill" />
 
     <ImageView
         android:id="@+id/addimage"
